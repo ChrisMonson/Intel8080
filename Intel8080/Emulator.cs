@@ -154,6 +154,7 @@ namespace Intel8080
                 case OpCodes.DCR_A:
                 case OpCodes.MVI_A:
                 case OpCodes.CMC:
+                    throw new NotImplementedException();
 
                 case OpCodes.MOV_B_B:
                     cycles = 5;
@@ -438,7 +439,7 @@ namespace Intel8080
                     break;
                 case OpCodes.ADD_M:
                     A += M;
-                    cycles = 4;
+                    cycles = 7;
                     break;
                 case OpCodes.ADD_A:
                     A += A;
@@ -453,15 +454,40 @@ namespace Intel8080
                 case OpCodes.ADC_L:
                 case OpCodes.ADC_M:
                 case OpCodes.ADC_A:
+                    throw new NotImplementedException();
 
                 case OpCodes.SUB_B:
+                    A -= B;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_C:
+                    A -= C;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_D:
+                    A -= D;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_E:
+                    A -= E;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_H:
+                    A -= H;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_L:
+                    A -= L;
+                    cycles = 4;
+                    break;
                 case OpCodes.SUB_M:
+                    A -= M;
+                    cycles = 7;
+                    break;
                 case OpCodes.SUB_A:
+                    A -= A;
+                    cycles = 4;
+                    break;
 
                 case OpCodes.SBB_B:
                 case OpCodes.SBB_C:
@@ -471,33 +497,106 @@ namespace Intel8080
                 case OpCodes.SBB_L:
                 case OpCodes.SBB_M:
                 case OpCodes.SBB_A:
+                    throw new NotImplementedException();
 
                 case OpCodes.ANA_B:
+                    A &= B;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_C:
+                    A &= C;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_D:
+                    A &= D;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_E:
+                    A &= E;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_H:
+                    A &= H;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_L:
+                    A &= L;
+                    cycles = 4;
+                    break;
                 case OpCodes.ANA_M:
+                    A &= M;
+                    cycles = 7;
+                    break;
                 case OpCodes.ANA_A:
+                    A &= A;
+                    cycles = 4;
+                    break;
 
                 case OpCodes.XRA_B:
+                    A ^= B;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_C:
+                    A ^= C;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_D:
+                    A ^= D;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_E:
+                    A ^= E;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_H:
+                    A ^= H;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_L:
+                    A ^= L;
+                    cycles = 4;
+                    break;
                 case OpCodes.XRA_M:
+                    A ^= L;
+                    cycles = 7;
+                    break;
                 case OpCodes.XRA_A:
+                    A ^= A;
+                    cycles = 4;
+                    break;
 
                 case OpCodes.ORA_B:
+                    A |= B;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_C:
+                    A |= C;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_D:
+                    A |= D;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_E:
+                    A |= E;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_H:
+                    A |= H;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_L:
+                    A |= L;
+                    cycles = 4;
+                    break;
                 case OpCodes.ORA_M:
+                    A |= M;
+                    cycles = 7;
+                    break;
                 case OpCodes.ORA_A:
+                    A |= A;
+                    cycles = 4;
+                    break;
 
                 case OpCodes.CMP_B:
                 case OpCodes.CMP_C:
