@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Intel8080.Tools
 {
-    static class OpCodes
+    public static class OpCodes
     {
 
         public const byte NOP = 0x00;

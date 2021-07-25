@@ -8,8 +8,10 @@ namespace Intel8080
     {
         static void Main(string[] args)
         {
+            var emulator = new Emulator();
             var stream = new FileStream("roms\\invaders.h", FileMode.Open);
-            Console.WriteLine(Disassembler.Execute(stream));
+            emulator.Execute();
+            Console.WriteLine();
         }
     }
 }
