@@ -156,85 +156,294 @@ namespace Intel8080
                 case OpCodes.CMC:
 
                 case OpCodes.MOV_B_B:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_C:
+                    B = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_D:
+                    B = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_E:
+                    B = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_H:
+                    B = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_L:
+                    B = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_B_M:
+                    B = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_B_A:
+                    B = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_C_B:
+                    C = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_C:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_D:
+                    C = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_E:
+                    C = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_H:
+                    C = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_L:
+                    C = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_C_M:
+                    C = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_C_A:
+                    C = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_D_B:
+                    D = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_C:
+                    D = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_D:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_E:
+                    D = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_H:
+                    D = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_L:
+                    D = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_D_M:
+                    D = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_D_A:
+                    D = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_E_B:
+                    E = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_C:
+                    E = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_D:
+                    E = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_E:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_H:
+                    E = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_L:
+                    E = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_E_M:
+                    E = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_E_A:
+                    E = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_H_B:
+                    H = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_C:
+                    H = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_D:
+                    H = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_E:
+                    H = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_H:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_L:
+                    H = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_H_M:
+                    H = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_H_A:
+                    H = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_L_B:
+                    L = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_C:
+                    L = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_D:
+                    L = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_E:
+                    L = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_H:
+                    L = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_L:
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_L_M:
+                    L = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_L_A:
+                    L = A;
+                    cycles = 5;
+                    break;
 
                 case OpCodes.MOV_M_B:
+                    M = B;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_M_C:
+                    M = C;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_M_D:
+                    M = D;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_M_E:
+                    M = E;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_M_H:
+                    M = H;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_M_L:
+                    M = L;
+                    cycles = 7;
+                    break;
                 case OpCodes.HLT:
+                    //Halt until interrupt
+                    cycles = 7;
+                    throw new NotImplementedException();
                 case OpCodes.MOV_M_A:
+                    M = A;
+                    cycles = 7;
+                    break;
 
                 case OpCodes.MOV_A_B:
+                    A = B;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_C:
+                    A = C;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_D:
+                    A = D;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_E:
+                    A = E;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_H:
+                    A = H;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_L:
+                    A = L;
+                    cycles = 5;
+                    break;
                 case OpCodes.MOV_A_M:
+                    A = M;
+                    cycles = 7;
+                    break;
                 case OpCodes.MOV_A_A:
+                    cycles = 5;
+                    break;
 
                 case OpCodes.ADD_B:
+                    A += B;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_C:
+                    A += C;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_D:
+                    A += D;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_E:
+                    A += E;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_H:
+                    A += H;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_L:
+                    A += L;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_M:
+                    A += M;
+                    cycles = 4;
+                    break;
                 case OpCodes.ADD_A:
+                    A += A;
+                    cycles = 4;
+                    break;
 
                 case OpCodes.ADC_B:
                 case OpCodes.ADC_C:
