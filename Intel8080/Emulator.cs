@@ -22,7 +22,17 @@ namespace Intel8080
         public byte E;
         public byte H;
         public byte L;
-        public byte M;
+        public byte M
+        {
+            get
+            {
+                return Memory[H * 256 + L];
+            }
+            set
+            {
+                Memory[H * 256 + L] = value;
+            }
+        }
         public byte A;
 
         //flags
@@ -33,9 +43,7 @@ namespace Intel8080
 
         private Stopwatch stopwatch = new Stopwatch();
         private const int ticksPerCycle = 5;
-
-        private byte[] ROM = new byte[8192];
-        private byte[] RAM = new byte[2048];
+        private byte[] Memory = new byte[2048];
 
         private long currentCycle = 0;
         private long nextOpCycle = 0;
@@ -82,7 +90,7 @@ namespace Intel8080
 
         private int NextStep()
         {
-            int opCode = ROM[0];
+            int opCode = Memory[0];
             int cycles = 1;
 
             switch ((byte)opCode)
@@ -92,66 +100,123 @@ namespace Intel8080
                     break;
 
                 case OpCodes.LXI_B:
+
                 case OpCodes.STAX_B:
                 case OpCodes.INX_B:
+                    throw new NotImplementedException();
                 case OpCodes.INR_B:
+                    B++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_B:
+                    B--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_B:
                 case OpCodes.RLC:
 
                 case OpCodes.DAD_B:
                 case OpCodes.LDAX_B:
                 case OpCodes.DCX_B:
+                    throw new NotImplementedException();
                 case OpCodes.INR_C:
+                    C++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_C:
+                    C--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_C:
                 case OpCodes.RRC:
 
                 case OpCodes.LXI_D:
                 case OpCodes.STAX_D:
                 case OpCodes.INX_D:
+                    throw new NotImplementedException();
                 case OpCodes.INR_D:
+                    D++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_D:
+                    D--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_D:
                 case OpCodes.RAL:
 
                 case OpCodes.DAD_D:
                 case OpCodes.LDAX_D:
                 case OpCodes.DCX_D:
+                    throw new NotImplementedException();
                 case OpCodes.INR_E:
+                    E++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_E:
+                    E--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_E:
                 case OpCodes.RAR:
 
                 case OpCodes.LXI_H:
                 case OpCodes.SHLD:
                 case OpCodes.INX_H:
+                    throw new NotImplementedException();
                 case OpCodes.INR_H:
+                    H++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_H:
+                    H--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_H:
                 case OpCodes.DAA:
 
                 case OpCodes.DAD_H:
                 case OpCodes.LHLD:
                 case OpCodes.DCX_H:
+                    throw new NotImplementedException();
                 case OpCodes.INR_L:
+                    L++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_L:
+                    L--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_L:
                 case OpCodes.CMA:
 
                 case OpCodes.LXI_SP:
                 case OpCodes.STA:
                 case OpCodes.INX_SP:
+                    throw new NotImplementedException();
                 case OpCodes.INR_M:
+                    M++;
+                    cycles = 10;
+                    break;
                 case OpCodes.DCR_M:
+                    M--;
+                    cycles = 10;
+                    break;
                 case OpCodes.MVI_M:
                 case OpCodes.STC:
 
                 case OpCodes.DAD_SP:
                 case OpCodes.LDA:
                 case OpCodes.DCX_SP:
+                    throw new NotImplementedException();
                 case OpCodes.INR_A:
+                    A++;
+                    cycles = 5;
+                    break;
                 case OpCodes.DCR_A:
+                    A--;
+                    cycles = 5;
+                    break;
                 case OpCodes.MVI_A:
                 case OpCodes.CMC:
                     throw new NotImplementedException();
