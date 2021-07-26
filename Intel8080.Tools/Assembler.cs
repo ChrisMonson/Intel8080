@@ -15,7 +15,6 @@ namespace Intel8080.Tools
 
             using (MemoryStream stream = new MemoryStream())
             {
-
                 //parse labels
                 foreach (var line in lines)
                 {
@@ -48,7 +47,6 @@ namespace Intel8080.Tools
                     }
 
                     ParseOpCode(stream, code, operand, true);
-
                 }
 
                 return stream.GetBuffer();
@@ -82,778 +80,1332 @@ namespace Intel8080.Tools
                         stream.WriteByte(OpCodes.STAX_B);
                     }
                     break;
-                /*case "INX_B":
-                    OpCode(sb, "INX", "B");
+                case "INX_B":
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.INX_B);
+                    }
                     break;
                 case "INR_B":
-                    OpCode(sb, "INR", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.INR_B);
+                    }
                     break;
                 case "DCR_B":
-                    OpCode(sb, "DCR", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.DCR_B);
+                    }
                     break;
                 case "MVI_B":
-                    OpCode8(sb, stream, "MVI", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.MVI_B);
+                    }
                     break;
                 case "RLC":
-                    OpCode(sb, "RLC");
+                    stream.WriteByte(OpCodes.RLC);
                     break;
 
 
                 case "DAD_B":
-                    OpCode(sb, "DAD", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.DAD_B);
+                    }
                     break;
                 case "LDAX_B":
-                    OpCode(sb, "LDAX", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.INR_B);
+                    }
                     break;
                 case "DCX_B":
-                    OpCode(sb, "DCX", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.DCX_B);
+                    }
                     break;
                 case "INR_C":
-                    OpCode(sb, "INR", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.INR_C);
+                    }
                     break;
                 case "DCR_C":
-                    OpCode(sb, "DCR", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.DCR_C);
+                    }
                     break;
                 case "MVI_C":
-                    OpCode8(sb, stream, "MVI", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.MVI_C);
+                    }
                     break;
                 case "RRC":
-                    OpCode(sb, "RRC");
+                    stream.WriteByte(OpCodes.RRC);
                     break;
 
 
                 case "LXI_D":
-                    OpCode16(sb, stream, "LXI", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.LXI_D);
+                    }
                     break;
                 case "STAX_D":
-                    OpCode(sb, "STAX", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.STAX_D);
+                    }
                     break;
                 case "INX_D":
-                    OpCode(sb, "INX", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.INX_D);
+                    }
                     break;
                 case "INR_D":
-                    OpCode(sb, "INR", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.INR_D);
+                    }
                     break;
                 case "DCR_D":
-                    OpCode(sb, "DCR", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.DCR_D);
+                    }
                     break;
                 case "MVI_D":
-                    OpCode8(sb, stream, "MVI", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.MVI_D);
+                    }
                     break;
                 case "RAL":
-                    OpCode(sb, "RAL");
+                    stream.WriteByte(OpCodes.RAL);
                     break;
 
 
                 case "DAD_D":
-                    OpCode(sb, "DAD", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.DAD_D);
+                    }
                     break;
                 case "LDAX_D":
-                    OpCode(sb, "LDAX", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.LDAX_D);
+                    }
                     break;
                 case "DCX_D":
-                    OpCode(sb, "DCX", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.DCX_D);
+                    }
                     break;
                 case "INR_E":
-                    OpCode(sb, "INR", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.INR_E);
+                    }
                     break;
                 case "DCR_E":
-                    OpCode(sb, "DCR", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.DCR_E);
+                    }
                     break;
                 case "MVI_E":
-                    OpCode8(sb, stream, "MVI", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.MVI_E);
+                    }
                     break;
                 case "RAR":
-                    OpCode(sb, "RAR");
+                    stream.WriteByte(OpCodes.RAR);
                     break;
 
 
                 case "LXI_H":
-                    OpCode16(sb, stream, "LXI", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.LXI_H);
+                    }
                     break;
                 case "SHLD":
-                    OpCodeAddress(sb, stream, "SHLD");
+                    stream.WriteByte(OpCodes.SHLD);
                     break;
                 case "INX_H":
-                    OpCode(sb, "INX", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.INX_H);
+                    }
                     break;
                 case "INR_H":
-                    OpCode(sb, "INR", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.INR_H);
+                    }
                     break;
                 case "DCR_H":
-                    OpCode(sb, "DCR", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.DCR_H);
+                    }
                     break;
                 case "MVI_H":
-                    OpCode8(sb, stream, "MVI", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.MVI_H);
+                    }
                     break;
                 case "DAA":
-                    OpCode(sb, "DAA");
+                    stream.WriteByte(OpCodes.DAA);
                     break;
 
 
                 case "DAD_H":
-                    OpCode(sb, "DAD", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.DAD_H);
+                    }
                     break;
                 case "LHLD":
-                    OpCodeAddress(sb, stream, "LHLD");
+                    stream.WriteByte(OpCodes.LHLD);
                     break;
                 case "DCX_H":
-                    OpCode(sb, "DCX", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.DCX_H);
+                    }
                     break;
                 case "INR_L":
-                    OpCode(sb, "INR", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.INR_L);
+                    }
                     break;
                 case "DCR_L":
-                    OpCode(sb, "DCR", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.DCR_L);
+                    }
                     break;
                 case "MVI_L":
-                    OpCode8(sb, stream, "MVI", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.MVI_L);
+                    }
                     break;
                 case "CMA":
-                    OpCode(sb, "CMA");
+                    stream.WriteByte(OpCodes.INR_L);
                     break;
 
 
                 case "LXI_SP":
-                    OpCode16(sb, stream, "LXI", "SP");
+                    if (operandParts[0] == "SP")
+                    {
+                        stream.WriteByte(OpCodes.LXI_SP);
+                    }
                     break;
                 case "STA":
-                    OpCodeAddress(sb, stream, "STA");
+                    stream.WriteByte(OpCodes.STA);
                     break;
                 case "INX_SP":
-                    OpCode(sb, "INX", "SP");
+                    if (operandParts[0] == "SP")
+                    {
+                        stream.WriteByte(OpCodes.INX_SP);
+                    }
                     break;
                 case "INR_M":
-                    OpCode(sb, "INR", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.INR_M);
+                    }
                     break;
                 case "DCR_M":
-                    OpCode(sb, "DCR", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.DCR_M);
+                    }
                     break;
                 case "MVI_M":
-                    OpCode8(sb, stream, "MVI", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.MVI_M);
+                    }
                     break;
                 case "STC":
-                    OpCode(sb, "STC");
+                    stream.WriteByte(OpCodes.STC);
                     break;
 
 
                 case "DAD_SP":
-                    OpCode(sb, "DAD", "SP");
+                    if (operandParts[0] == "SP")
+                    {
+                        stream.WriteByte(OpCodes.DAD_SP);
+                    }
                     break;
                 case "LDA":
-                    OpCodeAddress(sb, stream, "LDA");
+                    stream.WriteByte(OpCodes.LDA);
                     break;
                 case "DCX_SP":
-                    OpCode(sb, "DCX", "SP");
+                    if (operandParts[0] == "SP")
+                    {
+                        stream.WriteByte(OpCodes.DCX_SP);
+                    }
                     break;
                 case "INR_A":
-                    OpCode(sb, "INR", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.INR_A);
+                    }
                     break;
                 case "DCR_A":
-                    OpCode(sb, "DCR", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.DCR_A);
+                    }
                     break;
                 case "MVI_A":
-                    OpCode8(sb, stream, "MVI", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.MVI_A);
+                    }
                     break;
                 case "CMC":
-                    OpCode(sb, "CMC");
+                    stream.WriteByte(OpCodes.CMC);
                     break;
 
 
                 case "MOV_B_B":
-                    OpCode(sb, "MOV", "B,B");
+                    if (operandParts[0] == "B,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_B);
+                    }
                     break;
                 case "MOV_B_C":
-                    OpCode(sb, "MOV", "B,C");
+                    if (operandParts[0] == "B,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_C);
+                    }
                     break;
                 case "MOV_B_D":
-                    OpCode(sb, "MOV", "B,D");
+                    if (operandParts[0] == "B,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_D);
+                    }
                     break;
                 case "MOV_B_E":
-                    OpCode(sb, "MOV", "B,E");
+                    if (operandParts[0] == "B,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_E);
+                    }
                     break;
                 case "MOV_B_H":
-                    OpCode(sb, "MOV", "B,H");
+                    if (operandParts[0] == "B,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_H);
+                    }
                     break;
                 case "MOV_B_L":
-                    OpCode(sb, "MOV", "B,L");
+                    if (operandParts[0] == "B,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_L);
+                    }
                     break;
                 case "MOV_B_M":
-                    OpCode(sb, "MOV", "B,M");
+                    if (operandParts[0] == "B,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_M);
+                    }
                     break;
                 case "MOV_B_A":
-                    OpCode(sb, "MOV", "B,A");
+                    if (operandParts[0] == "B,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_B_A);
+                    }
                     break;
 
                 case "MOV_C_B":
-                    OpCode(sb, "MOV", "C,B");
+                    if (operandParts[0] == "C,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_B);
+                    }
                     break;
                 case "MOV_C_C":
-                    OpCode(sb, "MOV", "C,C");
+                    if (operandParts[0] == "C,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_C);
+                    }
                     break;
                 case "MOV_C_D":
-                    OpCode(sb, "MOV", "C,D");
+                    if (operandParts[0] == "C,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_D);
+                    }
                     break;
                 case "MOV_C_E":
-                    OpCode(sb, "MOV", "C,E");
+                    if (operandParts[0] == "C,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_E);
+                    }
                     break;
                 case "MOV_C_H":
-                    OpCode(sb, "MOV", "C,H");
+                    if (operandParts[0] == "C,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_H);
+                    }
                     break;
                 case "MOV_C_L":
-                    OpCode(sb, "MOV", "C,L");
+                    if (operandParts[0] == "C,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_L);
+                    }
                     break;
                 case "MOV_C_M":
-                    OpCode(sb, "MOV", "C,M");
+                    if (operandParts[0] == "C,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_M);
+                    }
                     break;
                 case "MOV_C_A":
-                    OpCode(sb, "MOV", "C,A");
+                    if (operandParts[0] == "C,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_C_A);
+                    }
                     break;
 
                 case "MOV_D_B":
-                    OpCode(sb, "MOV", "D,B");
+                    if (operandParts[0] == "D,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_B);
+                    }
                     break;
                 case "MOV_D_C":
-                    OpCode(sb, "MOV", "D,C");
+                    if (operandParts[0] == "D,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_C);
+                    }
                     break;
                 case "MOV_D_D":
-                    OpCode(sb, "MOV", "D,D");
+                    if (operandParts[0] == "D,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_D);
+                    }
                     break;
                 case "MOV_D_E":
-                    OpCode(sb, "MOV", "D,E");
+                    if (operandParts[0] == "D,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_E);
+                    }
                     break;
                 case "MOV_D_H":
-                    OpCode(sb, "MOV", "D,H");
+                    if (operandParts[0] == "D,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_H);
+                    }
                     break;
                 case "MOV_D_L":
-                    OpCode(sb, "MOV", "D,L");
+                    if (operandParts[0] == "D,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_L);
+                    }
                     break;
                 case "MOV_D_M":
-                    OpCode(sb, "MOV", "D,M");
+                    if (operandParts[0] == "D,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_M);
+                    }
                     break;
                 case "MOV_D_A":
-                    OpCode(sb, "MOV", "D,A");
+                    if (operandParts[0] == "D,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_D_A);
+                    }
                     break;
 
                 case "MOV_E_B":
-                    OpCode(sb, "MOV", "E,B");
+                    if (operandParts[0] == "E,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_B);
+                    }
                     break;
                 case "MOV_E_C":
-                    OpCode(sb, "MOV", "E,C");
+                    if (operandParts[0] == "E,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_C);
+                    }
                     break;
                 case "MOV_E_D":
-                    OpCode(sb, "MOV", "E,D");
+                    if (operandParts[0] == "E,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_D);
+                    }
                     break;
                 case "MOV_E_E":
-                    OpCode(sb, "MOV", "E,E");
+                    if (operandParts[0] == "E,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_E);
+                    }
                     break;
                 case "MOV_E_H":
-                    OpCode(sb, "MOV", "E,H");
+                    if (operandParts[0] == "E,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_H);
+                    }
                     break;
                 case "MOV_E_L":
-                    OpCode(sb, "MOV", "E,L");
+                    if (operandParts[0] == "E,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_L);
+                    }
                     break;
                 case "MOV_E_M":
-                    OpCode(sb, "MOV", "E,M");
+                    if (operandParts[0] == "E,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_M);
+                    }
                     break;
                 case "MOV_E_A":
-                    OpCode(sb, "MOV", "E,A");
+                    if (operandParts[0] == "E,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_E_A);
+                    }
                     break;
 
                 case "MOV_H_B":
-                    OpCode(sb, "MOV", "H,B");
+                    if (operandParts[0] == "H,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_B);
+                    }
                     break;
                 case "MOV_H_C":
-                    OpCode(sb, "MOV", "H,C");
+                    if (operandParts[0] == "H,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_C);
+                    }
                     break;
                 case "MOV_H_D":
-                    OpCode(sb, "MOV", "H,D");
+                    if (operandParts[0] == "H,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_D);
+                    }
                     break;
                 case "MOV_H_E":
-                    OpCode(sb, "MOV", "H,E");
+                    if (operandParts[0] == "H,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_E);
+                    }
                     break;
                 case "MOV_H_H":
-                    OpCode(sb, "MOV", "H,H");
+                    if (operandParts[0] == "H,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_H);
+                    }
                     break;
                 case "MOV_H_L":
-                    OpCode(sb, "MOV", "H,L");
+                    if (operandParts[0] == "H,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_L);
+                    }
                     break;
                 case "MOV_H_M":
-                    OpCode(sb, "MOV", "H,M");
+                    if (operandParts[0] == "H,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_M);
+                    }
                     break;
                 case "MOV_H_A":
-                    OpCode(sb, "MOV", "H,A");
+                    if (operandParts[0] == "H,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_H_A);
+                    }
                     break;
 
                 case "MOV_L_B":
-                    OpCode(sb, "MOV", "L,B");
+                    if (operandParts[0] == "L,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_B);
+                    }
                     break;
                 case "MOV_L_C":
-                    OpCode(sb, "MOV", "L,C");
+                    if (operandParts[0] == "L,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_C);
+                    }
                     break;
                 case "MOV_L_D":
-                    OpCode(sb, "MOV", "L,D");
+                    if (operandParts[0] == "L,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_D);
+                    }
                     break;
                 case "MOV_L_E":
-                    OpCode(sb, "MOV", "L,E");
+                    if (operandParts[0] == "L,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_E);
+                    }
                     break;
                 case "MOV_L_H":
-                    OpCode(sb, "MOV", "L,H");
+                    if (operandParts[0] == "L,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_H);
+                    }
                     break;
                 case "MOV_L_L":
-                    OpCode(sb, "MOV", "L,L");
+                    if (operandParts[0] == "L,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_L);
+                    }
                     break;
                 case "MOV_L_M":
-                    OpCode(sb, "MOV", "L,M");
+                    if (operandParts[0] == "L,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_M);
+                    }
                     break;
                 case "MOV_L_A":
-                    OpCode(sb, "MOV", "L,A");
+                    if (operandParts[0] == "L,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_L_A);
+                    }
                     break;
 
                 case "MOV_M_B":
-                    OpCode(sb, "MOV", "M,B");
+                    if (operandParts[0] == "M,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_B);
+                    }
                     break;
                 case "MOV_M_C":
-                    OpCode(sb, "MOV", "M,C");
+                    if (operandParts[0] == "M,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_C);
+                    }
                     break;
                 case "MOV_M_D":
-                    OpCode(sb, "MOV", "M,D");
+                    if (operandParts[0] == "M,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_D);
+                    }
                     break;
                 case "MOV_M_E":
-                    OpCode(sb, "MOV", "M,E");
+                    if (operandParts[0] == "M,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_E);
+                    }
                     break;
                 case "MOV_M_H":
-                    OpCode(sb, "MOV", "M,H");
+                    if (operandParts[0] == "M,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_H);
+                    }
                     break;
                 case "MOV_M_L":
-                    OpCode(sb, "MOV", "M,L");
+                    if (operandParts[0] == "M,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_B);
+                    }
                     break;
                 case "HLT":
-                    OpCode(sb, "HLT");
+                    stream.WriteByte(OpCodes.HLT);
                     break;
                 case "MOV_M_A":
-                    OpCode(sb, "MOV", "M,A");
+                    if (operandParts[0] == "M,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_M_A);
+                    }
                     break;
 
                 case "MOV_A_B":
-                    OpCode(sb, "MOV", "A,B");
+                    if (operandParts[0] == "A,B")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_B);
+                    }
                     break;
                 case "MOV_A_C":
-                    OpCode(sb, "MOV", "A,C");
+                    if (operandParts[0] == "A,C")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_C);
+                    }
                     break;
                 case "MOV_A_D":
-                    OpCode(sb, "MOV", "A,D");
+                    if (operandParts[0] == "A,D")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_D);
+                    }
                     break;
                 case "MOV_A_E":
-                    OpCode(sb, "MOV", "A,E");
+                    if (operandParts[0] == "A,E")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_E);
+                    }
                     break;
                 case "MOV_A_H":
-                    OpCode(sb, "MOV", "A,H");
+                    if (operandParts[0] == "A,H")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_H);
+                    }
                     break;
                 case "MOV_A_L":
-                    OpCode(sb, "MOV", "A,L");
+                    if (operandParts[0] == "A,L")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_L);
+                    }
                     break;
                 case "MOV_A_M":
-                    OpCode(sb, "MOV", "A,M");
+                    if (operandParts[0] == "A,M")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_M);
+                    }
                     break;
                 case "MOV_A_A":
-                    OpCode(sb, "MOV", "A,A");
+                    if (operandParts[0] == "A,A")
+                    {
+                        stream.WriteByte(OpCodes.MOV_A_A);
+                    }
                     break;
 
 
                 case "ADD_B":
-                    OpCode(sb, "ADD", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.ADD_B);
+                    }
                     break;
                 case "ADD_C":
-                    OpCode(sb, "ADD", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.ADD_C);
+                    }
                     break;
                 case "ADD_D":
-                    OpCode(sb, "ADD", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.ADD_D);
+                    }
                     break;
                 case "ADD_E":
-                    OpCode(sb, "ADD", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.ADD_E);
+                    }
                     break;
                 case "ADD_H":
-                    OpCode(sb, "ADD", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.ADD_H);
+                    }
                     break;
                 case "ADD_L":
-                    OpCode(sb, "ADD", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.ADD_L);
+                    }
                     break;
                 case "ADD_M":
-                    OpCode(sb, "ADD", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.ADD_M);
+                    }
                     break;
                 case "ADD_A":
-                    OpCode(sb, "ADD", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.ADD_A);
+                    }
                     break;
 
                 case "ADC_B":
-                    OpCode(sb, "ADC", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.ADC_B);
+                    }
                     break;
                 case "ADC_C":
-                    OpCode(sb, "ADC", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.ADC_C);
+                    }
                     break;
                 case "ADC_D":
-                    OpCode(sb, "ADC", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.ADC_D);
+                    }
                     break;
                 case "ADC_E":
-                    OpCode(sb, "ADC", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.ADC_E);
+                    }
                     break;
                 case "ADC_H":
-                    OpCode(sb, "ADC", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.ADC_H);
+                    }
                     break;
                 case "ADC_L":
-                    OpCode(sb, "ADC", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.ADC_L);
+                    }
                     break;
                 case "ADC_M":
-                    OpCode(sb, "ADC", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.ADC_M);
+                    }
                     break;
                 case "ADC_A":
-                    OpCode(sb, "ADC", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.ADC_A);
+                    }
                     break;
 
                 case "SUB_B":
-                    OpCode(sb, "SUB", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.SUB_B);
+                    }
                     break;
                 case "SUB_C":
-                    OpCode(sb, "SUB", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.SUB_C);
+                    }
                     break;
                 case "SUB_D":
-                    OpCode(sb, "SUB", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.SUB_D);
+                    }
                     break;
                 case "SUB_E":
-                    OpCode(sb, "SUB", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.SUB_E);
+                    }
                     break;
                 case "SUB_H":
-                    OpCode(sb, "SUB", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.SUB_H);
+                    }
                     break;
                 case "SUB_L":
-                    OpCode(sb, "SUB", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.SUB_L);
+                    }
                     break;
                 case "SUB_M":
-                    OpCode(sb, "SUB", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.SUB_M);
+                    }
                     break;
                 case "SUB_A":
-                    OpCode(sb, "SUB", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.SUB_A);
+                    }
                     break;
 
                 case "SBB_B":
-                    OpCode(sb, "SBB", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.SBB_B);
+                    }
                     break;
                 case "SBB_C":
-                    OpCode(sb, "SBB", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.SBB_C);
+                    }
                     break;
                 case "SBB_D":
-                    OpCode(sb, "SBB", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.SBB_D);
+                    }
                     break;
                 case "SBB_E":
-                    OpCode(sb, "SBB", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.SBB_E);
+                    }
                     break;
                 case "SBB_H":
-                    OpCode(sb, "SBB", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.SBB_H);
+                    }
                     break;
                 case "SBB_L":
-                    OpCode(sb, "SBB", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.SBB_L);
+                    }
                     break;
                 case "SBB_M":
-                    OpCode(sb, "SBB", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.SBB_M);
+                    }
                     break;
                 case "SBB_A":
-                    OpCode(sb, "SBB", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.SBB_A);
+                    }
                     break;
 
                 case "ANA_B":
-                    OpCode(sb, "ANA", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.ANA_B);
+                    }
                     break;
                 case "ANA_C":
-                    OpCode(sb, "ANA", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.ANA_C);
+                    }
                     break;
                 case "ANA_D":
-                    OpCode(sb, "ANA", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.ANA_D);
+                    }
                     break;
                 case "ANA_E":
-                    OpCode(sb, "ANA", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.ANA_E);
+                    }
                     break;
                 case "ANA_H":
-                    OpCode(sb, "ANA", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.ANA_H);
+                    }
                     break;
                 case "ANA_L":
-                    OpCode(sb, "ANA", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.ANA_L);
+                    }
                     break;
                 case "ANA_M":
-                    OpCode(sb, "ANA", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.ANA_M);
+                    }
                     break;
                 case "ANA_A":
-                    OpCode(sb, "ANA", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.ANA_A);
+                    }
                     break;
 
                 case "XRA_B":
-                    OpCode(sb, "XRA", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.XRA_B);
+                    }
                     break;
                 case "XRA_C":
-                    OpCode(sb, "XRA", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.XRA_C);
+                    }
                     break;
                 case "XRA_D":
-                    OpCode(sb, "XRA", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.XRA_D);
+                    }
                     break;
                 case "XRA_E":
-                    OpCode(sb, "XRA", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.XRA_E);
+                    }
                     break;
                 case "XRA_H":
-                    OpCode(sb, "XRA", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.XRA_H);
+                    }
                     break;
                 case "XRA_L":
-                    OpCode(sb, "XRA", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.XRA_L);
+                    }
                     break;
                 case "XRA_M":
-                    OpCode(sb, "XRA", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.XRA_M);
+                    }
                     break;
                 case "XRA_A":
-                    OpCode(sb, "XRA", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.XRA_A);
+                    }
                     break;
 
 
                 case "ORA_B":
-                    OpCode(sb, "ORA", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.ORA_B);
+                    }
                     break;
                 case "ORA_C":
-                    OpCode(sb, "ORA", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.ORA_C);
+                    }
                     break;
                 case "ORA_D":
-                    OpCode(sb, "ORA", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.ORA_D);
+                    }
                     break;
                 case "ORA_E":
-                    OpCode(sb, "ORA", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.ORA_E);
+                    }
                     break;
                 case "ORA_H":
-                    OpCode(sb, "ORA", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.ORA_H);
+                    }
                     break;
                 case "ORA_L":
-                    OpCode(sb, "ORA", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.ORA_L);
+                    }
                     break;
                 case "ORA_M":
-                    OpCode(sb, "ORA", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.ORA_M);
+                    }
                     break;
                 case "ORA_A":
-                    OpCode(sb, "ORA", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.ORA_A);
+                    }
                     break;
 
 
                 case "CMP_B":
-                    OpCode(sb, "CMP", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.CMP_B);
+                    }
                     break;
                 case "CMP_C":
-                    OpCode(sb, "CMP", "C");
+                    if (operandParts[0] == "C")
+                    {
+                        stream.WriteByte(OpCodes.CMP_C);
+                    }
                     break;
                 case "CMP_D":
-                    OpCode(sb, "CMP", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.CMP_D);
+                    }
                     break;
                 case "CMP_E":
-                    OpCode(sb, "CMP", "E");
+                    if (operandParts[0] == "E")
+                    {
+                        stream.WriteByte(OpCodes.CMP_E);
+                    }
                     break;
                 case "CMP_H":
-                    OpCode(sb, "CMP", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.CMP_H);
+                    }
                     break;
                 case "CMP_L":
-                    OpCode(sb, "CMP", "L");
+                    if (operandParts[0] == "L")
+                    {
+                        stream.WriteByte(OpCodes.CMP_L);
+                    }
                     break;
                 case "CMP_M":
-                    OpCode(sb, "CMP", "M");
+                    if (operandParts[0] == "M")
+                    {
+                        stream.WriteByte(OpCodes.CMP_M);
+                    }
                     break;
                 case "CMP_A":
-                    OpCode(sb, "CMP", "A");
+                    if (operandParts[0] == "A")
+                    {
+                        stream.WriteByte(OpCodes.CMP_A);
+                    }
                     break;
 
                 case "RNZ":
-                    OpCode(sb, "RNZ");
+                    stream.WriteByte(OpCodes.RNZ);
                     break;
                 case "POP_B":
-                    OpCode(sb, "POP", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.POP_B);
+                    }
                     break;
                 case "JNZ":
-                    OpCodeAddress(sb, stream, "JNZ");
+                    stream.WriteByte(OpCodes.JNZ);
                     break;
                 case "JMP":
-                    OpCodeAddress(sb, stream, "JMP");
+                    stream.WriteByte(OpCodes.JMP);
                     break;
                 case "CNZ":
-                    OpCodeAddress(sb, stream, "CNZ");
+                    stream.WriteByte(OpCodes.CNZ);
                     break;
                 case "PUSH_B":
-                    OpCode(sb, "PUSH", "B");
+                    if (operandParts[0] == "B")
+                    {
+                        stream.WriteByte(OpCodes.PUSH_B);
+                    }
                     break;
                 case "ADI":
-                    OpCode8(sb, stream, "ADI");
+                    stream.WriteByte(OpCodes.ADI);
                     break;
                 case "RST_0":
-                    OpCode(sb, "RST", "0");
+                    if (operandParts[0] == "0")
+                    {
+                        stream.WriteByte(OpCodes.RST_0);
+                    }
                     break;
                 case "RZ":
-                    OpCode(sb, "RZ");
+                    stream.WriteByte(OpCodes.RZ);
                     break;
                 case "RET":
-                    OpCodeAddress(sb, stream, "RET");
+                    stream.WriteByte(OpCodes.RET);
                     break;
                 case "JZ":
-                    OpCode(sb, "JZ");
+                    stream.WriteByte(OpCodes.JZ);
                     break;
 
 
                 case "CZ":
-                    OpCodeAddress(sb, stream, "CZ");
+                    stream.WriteByte(OpCodes.CZ);
                     break;
                 case "CALL":
-                    OpCodeAddress(sb, stream, "CALL");
+                    stream.WriteByte(OpCodes.CALL);
                     break;
                 case "ACI":
-                    OpCode8(sb, stream, "ACI");
+                    stream.WriteByte(OpCodes.ACI);
                     break;
                 case "RST_1":
-                    OpCode(sb, "RST", "1");
+                    if (operandParts[0] == "1")
+                    {
+                        stream.WriteByte(OpCodes.RST_1);
+                    }
                     break;
 
                 case "RNC":
-                    OpCode(sb, "RNC");
+                    stream.WriteByte(OpCodes.RNC);
                     break;
                 case "POP_D":
-                    OpCode(sb, "POP", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.POP_D);
+                    }
                     break;
                 case "JNC":
-                    OpCodeAddress(sb, stream, "JNC");
+                    stream.WriteByte(OpCodes.JNC);
                     break;
                 case "OUT":
-                    OpCode8(sb, stream, "OUT");
+                    stream.WriteByte(OpCodes.OUT);
                     break;
                 case "CNC":
-                    OpCodeAddress(sb, stream, "CNC");
+                    stream.WriteByte(OpCodes.CNC);
                     break;
                 case "PUSH_D":
-                    OpCode(sb, "PUSH", "D");
+                    if (operandParts[0] == "D")
+                    {
+                        stream.WriteByte(OpCodes.PUSH_D);
+                    }
                     break;
                 case "SUI":
-                    OpCode8(sb, stream, "SUI");
+                    stream.WriteByte(OpCodes.SUI);
                     break;
                 case "RST_2":
-                    OpCode(sb, "RST", "2");
+                    if (operandParts[0] == "2")
+                    {
+                        stream.WriteByte(OpCodes.RST_2);
+                    }
                     break;
                 case "RC":
-                    OpCode(sb, "RC");
+                    stream.WriteByte(OpCodes.RC);
                     break;
 
 
                 case "JC":
-                    OpCodeAddress(sb, stream, "JC");
+                    stream.WriteByte(OpCodes.JC);
                     break;
                 case "IN":
-                    OpCode8(sb, stream, "IN");
+                    stream.WriteByte(OpCodes.IN);
                     break;
                 case "CC":
-                    OpCodeAddress(sb, stream, "CC");
+                    stream.WriteByte(OpCodes.CC);
                     break;
 
 
                 case "SBI":
-                    OpCode8(sb, stream, "SBI");
+                    stream.WriteByte(OpCodes.SBI);
                     break;
                 case "RST_3":
-                    OpCode(sb, "RST", "3");
+                    if (operandParts[0] == "3")
+                    {
+                        stream.WriteByte(OpCodes.RST_3);
+                    }
                     break;
 
                 case "RPO":
-                    OpCode(sb, "RPO");
+                    stream.WriteByte(OpCodes.RPO);
                     break;
                 case "POP_H":
-                    OpCode(sb, "POP", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.POP_H);
+                    }
                     break;
                 case "JPO":
-                    OpCodeAddress(sb, stream, "JPO");
+                    stream.WriteByte(OpCodes.JPO);
                     break;
                 case "XTHL":
-                    OpCode(sb, "XTHL");
+                    stream.WriteByte(OpCodes.XTHL);
                     break;
                 case "CPO":
-                    OpCodeAddress(sb, stream, "CPO");
+                    stream.WriteByte(OpCodes.CPO);
                     break;
                 case "PUSH_H":
-                    OpCode(sb, "PUSH", "H");
+                    if (operandParts[0] == "H")
+                    {
+                        stream.WriteByte(OpCodes.PUSH_H);
+                    }
                     break;
                 case "ANI":
-                    OpCode8(sb, stream, "ANI");
+                    stream.WriteByte(OpCodes.ANI);
                     break;
                 case "RST_4":
-                    OpCode(sb, "RST", "4");
+                    if (operandParts[0] == "4")
+                    {
+                        stream.WriteByte(OpCodes.RST_4);
+                    }
                     break;
                 case "RPE":
-                    OpCode(sb, "RPE");
+                    stream.WriteByte(OpCodes.RPE);
                     break;
                 case "PCHL":
-                    OpCode(sb, "PCHL");
+                    stream.WriteByte(OpCodes.PCHL);
                     break;
                 case "JPE":
-                    OpCodeAddress(sb, stream, "JPE");
+                    stream.WriteByte(OpCodes.JPE);
                     break;
                 case "XCHG":
-                    OpCode(sb, "XCHG");
+                    stream.WriteByte(OpCodes.XCHG);
                     break;
                 case "CPE":
-                    OpCodeAddress(sb, stream, "CPE");
+                    stream.WriteByte(OpCodes.CPE);
                     break;
 
 
                 case "XRI":
-                    OpCode8(sb, stream, "XRI");
+                    stream.WriteByte(OpCodes.XRI);
                     break;
                 case "RST_5":
-                    OpCode(sb, "RST", "5");
+                    if (operandParts[0] == "5")
+                    {
+                        stream.WriteByte(OpCodes.RST_5);
+                    }
                     break;
 
                 case "RP":
-                    OpCode(sb, "RP");
+                    stream.WriteByte(OpCodes.RP);
                     break;
                 case "POP_PSW":
-                    OpCode(sb, "POP", "PSW");
+                    if (operandParts[0] == "PSW")
+                    {
+                        stream.WriteByte(OpCodes.POP_PSW);
+                    }
                     break;
                 case "JP":
-                    OpCodeAddress(sb, stream, "JP");
+                    stream.WriteByte(OpCodes.JP);
                     break;
                 case "DI":
-                    OpCode(sb, "DI");
+                    stream.WriteByte(OpCodes.DI);
                     break;
                 case "CP":
-                    OpCodeAddress(sb, stream, "CP");
+                    stream.WriteByte(OpCodes.CP);
                     break;
                 case "PUSH_PSW":
-                    OpCode(sb, "PUSH", "PSW");
+                    if (operandParts[0] == "PSW")
+                    {
+                        stream.WriteByte(OpCodes.PUSH_PSW);
+                    }
                     break;
                 case "ORI":
-                    OpCode8(sb, stream, "ORI");
+                    stream.WriteByte(OpCodes.ORI);
                     break;
                 case "RST_6":
-                    OpCode(sb, "RST", "6");
+                    if (operandParts[0] == "6")
+                    {
+                        stream.WriteByte(OpCodes.RST_6);
+                    }
                     break;
                 case "RM":
-                    OpCode(sb, "RM");
+                    stream.WriteByte(OpCodes.RM);
                     break;
                 case "SPHL":
-                    OpCode(sb, "SPHL");
+                    stream.WriteByte(OpCodes.SPHL);
                     break;
                 case "JM":
-                    OpCodeAddress(sb, stream, "JM");
+                    stream.WriteByte(OpCodes.JM);
                     break;
                 case "EI":
-                    OpCode(sb, "EI");
+                    stream.WriteByte(OpCodes.EI);
                     break;
                 case "CM":
-                    OpCodeAddress(sb, stream, "CM");
+                    stream.WriteByte(OpCodes.CM);
                     break;
 
 
                 case "CPI":
-                    OpCode8(sb, stream, "CPI");
+                    stream.WriteByte(OpCodes.CPI);
                     break;
                 case "RST_7":
-                    OpCode(sb, "RST", "7");
+                    if (operandParts[0] == "7")
+                    {
+                        stream.WriteByte(OpCodes.RST_7);
+                    }
                     break;
-                */
             }
         }
     }    
